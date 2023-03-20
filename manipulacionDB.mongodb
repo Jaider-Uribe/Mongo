@@ -1,0 +1,20 @@
+
+// ###################################################################################### MANIPULACION DE LA DB###############################################################
+
+use("Demeter");
+
+db.Proveedores.find({firstName : "Judd"})
+
+db.Ventas.updateOne({waiter: "Nasir"},{ $set : {"turn" : 1}})
+
+db.Ventas.updateOne({waiter: "Nasir"},{ $set : {"waiterID" : 1}})
+
+db.Ventas.updateMany({turn : 11}, {$set:{waiter : "samuel"}})
+
+db.Ventas.updateMany({turn : 11}, {$set:{waiterID : 30}})
+
+db.Compras.deleteOne({provider : "Keara"})
+
+db.Compras.deleteMany({amount: 20})
+
+db.Proveedores.drop()

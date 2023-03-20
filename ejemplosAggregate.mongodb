@@ -1,0 +1,41 @@
+// ############################################## EJEMPLOS CON AGGREGATE #######################################################################
+
+use("Demeter");
+
+db.ventas.aggregate([
+    {$lookup:{
+      from: "Compras",
+      localField : "price",
+      foreignField : "price",
+      as : "prices"
+    }}
+])
+
+db.ventas.aggregate([
+    {$lookup:{
+      from: "Proveedores",
+      localField : "waiter",
+      foreignField : "firstName",
+      as : "employees"
+    }}
+])
+
+db.Compras.aggregate([
+  {$match : {
+    amount : 3
+  }},
+  {$project : { 
+    provider : 1, price : 1, product : 1
+  }},
+  {$limit : 1}
+])
+
+db.Compras.aggregate([
+  {$match : {
+    amount : 10
+  }},
+  {$project : { 
+    provider : 1, price : 1, product : 1
+  }},
+  {$sort :{ price : -1} }
+])
