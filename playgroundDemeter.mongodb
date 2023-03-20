@@ -1,0 +1,2375 @@
+use("Demeter");
+
+// #####################################################################################INICIO CREACION#############################################################
+//
+// db.createCollection("Proveedores", {
+//   validator : {
+//     $jsonSchema:{
+//       bsonType: "object",
+//          title: "Validacion proveedores",
+//          required: [ "city", "lastName", "firstName", "phone", "email" ],
+//          properties : {
+//           firstName:{
+//             bsonType: "string",
+//             description: "'name' must be a string and is required"
+//           },
+//           lastName:{
+//             bsonType: "string",
+//             description: "'lastName' must be a string and is required"
+//           },
+//           city:{
+//             bsonType: "string",
+//             description: "'city' must be a string and is required"
+//           },
+//           phone:{
+//             bsonType: "int",
+//             description:"'year' must be an integer"
+//           },
+//           email:{
+//             bsonType : "string"
+//           }
+//          }
+
+//     }
+//   }
+// })
+
+// db.createCollection("Ventas", {
+//   validator : {
+//     $jsonSchema:{
+//       bsonType: "object",
+//          title: "Validacion Ventas",
+//          required: [ "product", "price", "date", "waiter", "turn" ],
+//          properties : {
+//           product:{
+//             bsonType: "string",
+//             description: "'name' must be a string and is required"
+//           },
+//           price:{
+//             bsonType: "string",
+//             description: "'lastName' must be a string and is required"
+//           },
+//           date:{
+//             bsonType: "string",
+//             description: "'city' must be a string and is required"
+//           },
+//           turn:{
+//             bsonType: "int",
+//             description:"'year' must be an integer"
+//           },
+//           waiter:{
+//             bsonType : "string"
+//           }
+//          }
+
+//     }
+//   }
+// })
+
+// db.createCollection("Compras", {
+//   validator : {
+//     $jsonSchema:{
+//       bsonType: "object",
+//          title: "Validacion Ventas",
+//          required: [ "product", "price", "date", "provider", "amount" ],
+//          properties : {
+//           product:{
+//             bsonType: "string",
+//             description: "'name' must be a string and is required"
+//           },
+//           price:{
+//             bsonType: "string",
+//             description: "'lastName' must be a string and is required"
+//           },
+//           date:{
+//             bsonType: "string",
+//             description: "'city' must be a string and is required"
+//           },
+//           amount:{
+//             bsonType: "int",
+//             description:"'year' must be an integer"
+//           },
+//           provider:{
+//             bsonType : "string"
+//           }
+//          }
+
+//     }
+//   }
+// })
+
+// db.Ventas.insertMany([
+// 		{
+// 			"product": "Chair",
+// 			"date": "2023-03-19T20:20:21.971Z",
+// 			"waiter": "Ona",
+// 			"price": "674.00",
+// 			"turn": 25
+// 		},
+// 		{
+// 			"product": "Cheese",
+// 			"date": "2023-03-20T00:01:14.589Z",
+// 			"waiter": "Nasir",
+// 			"price": "436.00",
+// 			"turn": 29
+// 		},
+// 		{
+// 			"product": "Tuna",
+// 			"date": "2023-03-19T16:13:05.879Z",
+// 			"waiter": "Keaton",
+// 			"price": "30.00",
+// 			"turn": 12
+// 		},
+// 		{
+// 			"product": "Bike",
+// 			"date": "2023-03-19T10:17:28.145Z",
+// 			"waiter": "Jadyn",
+// 			"price": "724.00",
+// 			"turn": 27
+// 		},
+// 		{
+// 			"product": "Towels",
+// 			"date": "2023-03-19T23:12:54.408Z",
+// 			"waiter": "Chandler",
+// 			"price": "384.00",
+// 			"turn": 40
+// 		},
+// 		{
+// 			"product": "Computer",
+// 			"date": "2023-03-20T07:08:04.669Z",
+// 			"waiter": "Corene",
+// 			"price": "132.00",
+// 			"turn": 23
+// 		},
+// 		{
+// 			"product": "Towels",
+// 			"date": "2023-03-20T06:08:59.986Z",
+// 			"waiter": "Jaquan",
+// 			"price": "128.00",
+// 			"turn": 6
+// 		},
+// 		{
+// 			"product": "Car",
+// 			"date": "2023-03-19T13:51:31.965Z",
+// 			"waiter": "Felton",
+// 			"price": "149.00",
+// 			"turn": 2
+// 		},
+// 		{
+// 			"product": "Tuna",
+// 			"date": "2023-03-19T21:46:19.352Z",
+// 			"waiter": "Modesta",
+// 			"price": "834.00",
+// 			"turn": 38
+// 		},
+// 		{
+// 			"product": "Ball",
+// 			"date": "2023-03-19T16:10:13.631Z",
+// 			"waiter": "Mack",
+// 			"price": "749.00",
+// 			"turn": 23
+// 		},
+// 		{
+// 			"product": "Shoes",
+// 			"date": "2023-03-19T22:36:07.297Z",
+// 			"waiter": "Merlin",
+// 			"price": "968.00",
+// 			"turn": 35
+// 		},
+// 		{
+// 			"product": "Gloves",
+// 			"date": "2023-03-19T20:42:57.825Z",
+// 			"waiter": "Sonya",
+// 			"price": "554.00",
+// 			"turn": 33
+// 		},
+// 		{
+// 			"product": "Gloves",
+// 			"date": "2023-03-20T01:03:03.951Z",
+// 			"waiter": "Colten",
+// 			"price": "530.00",
+// 			"turn": 34
+// 		},
+// 		{
+// 			"product": "Towels",
+// 			"date": "2023-03-19T10:39:49.532Z",
+// 			"waiter": "Ellsworth",
+// 			"price": "182.00",
+// 			"turn": 20
+// 		},
+// 		{
+// 			"product": "Soap",
+// 			"date": "2023-03-19T23:20:50.543Z",
+// 			"waiter": "Kyler",
+// 			"price": "887.00",
+// 			"turn": 25
+// 		},
+// 		{
+// 			"product": "Pants",
+// 			"date": "2023-03-19T23:30:22.435Z",
+// 			"waiter": "Bridgette",
+// 			"price": "642.00",
+// 			"turn": 36
+// 		},
+// 		{
+// 			"product": "Gloves",
+// 			"date": "2023-03-19T21:21:28.852Z",
+// 			"waiter": "Nathanael",
+// 			"price": "688.00",
+// 			"turn": 25
+// 		},
+// 		{
+// 			"product": "Computer",
+// 			"date": "2023-03-19T15:55:45.318Z",
+// 			"waiter": "Jena",
+// 			"price": "438.00",
+// 			"turn": 0
+// 		},
+// 		{
+// 			"product": "Chicken",
+// 			"date": "2023-03-20T05:24:35.415Z",
+// 			"waiter": "Janiya",
+// 			"price": "842.00",
+// 			"turn": 28
+// 		},
+// 		{
+// 			"product": "Soap",
+// 			"date": "2023-03-19T15:50:14.929Z",
+// 			"waiter": "Ernestina",
+// 			"price": "624.00",
+// 			"turn": 38
+// 		},
+// 		{
+// 			"product": "Salad",
+// 			"date": "2023-03-19T15:22:45.119Z",
+// 			"waiter": "Elmer",
+// 			"price": "478.00",
+// 			"turn": 30
+// 		},
+// 		{
+// 			"product": "Bacon",
+// 			"date": "2023-03-20T05:54:47.145Z",
+// 			"waiter": "Jena",
+// 			"price": "868.00",
+// 			"turn": 27
+// 		},
+// 		{
+// 			"product": "Chips",
+// 			"date": "2023-03-20T00:45:12.450Z",
+// 			"waiter": "Jonas",
+// 			"price": "651.00",
+// 			"turn": 30
+// 		},
+// 		{
+// 			"product": "Tuna",
+// 			"date": "2023-03-19T13:02:05.666Z",
+// 			"waiter": "Jaycee",
+// 			"price": "535.00",
+// 			"turn": 10
+// 		},
+// 		{
+// 			"product": "Salad",
+// 			"date": "2023-03-20T08:25:57.422Z",
+// 			"waiter": "Darion",
+// 			"price": "25.00",
+// 			"turn": 37
+// 		},
+// 		{
+// 			"product": "Towels",
+// 			"date": "2023-03-19T11:06:33.373Z",
+// 			"waiter": "Isabell",
+// 			"price": "946.00",
+// 			"turn": 23
+// 		},
+// 		{
+// 			"product": "Bacon",
+// 			"date": "2023-03-19T18:47:46.320Z",
+// 			"waiter": "Monserrate",
+// 			"price": "944.00",
+// 			"turn": 27
+// 		},
+// 		{
+// 			"product": "Sausages",
+// 			"date": "2023-03-19T12:57:36.848Z",
+// 			"waiter": "Malcolm",
+// 			"price": "577.00",
+// 			"turn": 12
+// 		},
+// 		{
+// 			"product": "Car",
+// 			"date": "2023-03-20T04:36:18.061Z",
+// 			"waiter": "Marlin",
+// 			"price": "177.00",
+// 			"turn": 31
+// 		},
+// 		{
+// 			"product": "Sausages",
+// 			"date": "2023-03-19T13:45:02.540Z",
+// 			"waiter": "Narciso",
+// 			"price": "55.00",
+// 			"turn": 22
+// 		},
+// 		{
+// 			"product": "Chips",
+// 			"date": "2023-03-20T03:43:46.032Z",
+// 			"waiter": "Ulices",
+// 			"price": "46.00",
+// 			"turn": 15
+// 		},
+// 		{
+// 			"product": "Fish",
+// 			"date": "2023-03-20T03:10:23.457Z",
+// 			"waiter": "Eulah",
+// 			"price": "577.00",
+// 			"turn": 40
+// 		},
+// 		{
+// 			"product": "Car",
+// 			"date": "2023-03-19T15:35:27.770Z",
+// 			"waiter": "Frederik",
+// 			"price": "708.00",
+// 			"turn": 5
+// 		},
+// 		{
+// 			"product": "Chips",
+// 			"date": "2023-03-20T05:26:22.808Z",
+// 			"waiter": "Micah",
+// 			"price": "957.00",
+// 			"turn": 20
+// 		},
+// 		{
+// 			"product": "Mouse",
+// 			"date": "2023-03-20T01:09:47.250Z",
+// 			"waiter": "Arvid",
+// 			"price": "165.00",
+// 			"turn": 36
+// 		},
+// 		{
+// 			"product": "Pants",
+// 			"date": "2023-03-19T18:51:23.707Z",
+// 			"waiter": "Mark",
+// 			"price": "306.00",
+// 			"turn": 11
+// 		},
+// 		{
+// 			"product": "Shoes",
+// 			"date": "2023-03-20T00:31:00.884Z",
+// 			"waiter": "Hershel",
+// 			"price": "143.00",
+// 			"turn": 5
+// 		},
+// 		{
+// 			"product": "Gloves",
+// 			"date": "2023-03-20T06:16:40.558Z",
+// 			"waiter": "Cesar",
+// 			"price": "822.00",
+// 			"turn": 14
+// 		},
+// 		{
+// 			"product": "Shoes",
+// 			"date": "2023-03-19T23:36:53.094Z",
+// 			"waiter": "Mark",
+// 			"price": "439.00",
+// 			"turn": 38
+// 		},
+// 		{
+// 			"product": "Soap",
+// 			"date": "2023-03-19T21:58:23.194Z",
+// 			"waiter": "Mohammed",
+// 			"price": "112.00",
+// 			"turn": 24
+// 		},
+// 		{
+// 			"product": "Chicken",
+// 			"date": "2023-03-19T23:29:56.871Z",
+// 			"waiter": "Sydnee",
+// 			"price": "348.00",
+// 			"turn": 29
+// 		},
+// 		{
+// 			"product": "Table",
+// 			"date": "2023-03-19T14:32:25.773Z",
+// 			"waiter": "Rudolph",
+// 			"price": "718.00",
+// 			"turn": 27
+// 		},
+// 		{
+// 			"product": "Pizza",
+// 			"date": "2023-03-20T04:19:43.555Z",
+// 			"waiter": "Justen",
+// 			"price": "956.00",
+// 			"turn": 3
+// 		},
+// 		{
+// 			"product": "Salad",
+// 			"date": "2023-03-20T00:53:04.128Z",
+// 			"waiter": "Uriah",
+// 			"price": "431.00",
+// 			"turn": 21
+// 		},
+// 		{
+// 			"product": "Chicken",
+// 			"date": "2023-03-20T07:52:03.351Z",
+// 			"waiter": "Margot",
+// 			"price": "932.00",
+// 			"turn": 12
+// 		},
+// 		{
+// 			"product": "Soap",
+// 			"date": "2023-03-20T08:11:36.963Z",
+// 			"waiter": "Anissa",
+// 			"price": "837.00",
+// 			"turn": 14
+// 		},
+// 		{
+// 			"product": "Gloves",
+// 			"date": "2023-03-19T18:06:35.996Z",
+// 			"waiter": "Everett",
+// 			"price": "960.00",
+// 			"turn": 40
+// 		},
+// 		{
+// 			"product": "Hat",
+// 			"date": "2023-03-19T16:46:59.108Z",
+// 			"waiter": "Aurelio",
+// 			"price": "694.00",
+// 			"turn": 6
+// 		},
+// 		{
+// 			"product": "Pizza",
+// 			"date": "2023-03-20T05:39:51.429Z",
+// 			"waiter": "Elena",
+// 			"price": "792.00",
+// 			"turn": 38
+// 		},
+// 		{
+// 			"product": "Chicken",
+// 			"date": "2023-03-19T10:17:18.460Z",
+// 			"waiter": "Ona",
+// 			"price": "395.00",
+// 			"turn": 39
+// 		},
+// 		{
+// 			"product": "Fish",
+// 			"date": "2023-03-19T09:35:27.923Z",
+// 			"waiter": "David",
+// 			"price": "609.00",
+// 			"turn": 1
+// 		},
+// 		{
+// 			"product": "Sausages",
+// 			"date": "2023-03-20T05:12:10.021Z",
+// 			"waiter": "Stanton",
+// 			"price": "868.00",
+// 			"turn": 36
+// 		},
+// 		{
+// 			"product": "Bike",
+// 			"date": "2023-03-19T22:50:28.788Z",
+// 			"waiter": "Gino",
+// 			"price": "39.00",
+// 			"turn": 26
+// 		},
+// 		{
+// 			"product": "Pizza",
+// 			"date": "2023-03-19T16:40:28.663Z",
+// 			"waiter": "Alycia",
+// 			"price": "879.00",
+// 			"turn": 21
+// 		},
+// 		{
+// 			"product": "Shoes",
+// 			"date": "2023-03-19T13:27:37.123Z",
+// 			"waiter": "Name",
+// 			"price": "361.00",
+// 			"turn": 20
+// 		},
+// 		{
+// 			"product": "Hat",
+// 			"date": "2023-03-19T10:22:36.073Z",
+// 			"waiter": "Chloe",
+// 			"price": "995.00",
+// 			"turn": 24
+// 		},
+// 		{
+// 			"product": "Mouse",
+// 			"date": "2023-03-20T06:27:53.857Z",
+// 			"waiter": "Madisen",
+// 			"price": "326.00",
+// 			"turn": 10
+// 		},
+// 		{
+// 			"product": "Car",
+// 			"date": "2023-03-19T21:20:50.800Z",
+// 			"waiter": "Anika",
+// 			"price": "195.00",
+// 			"turn": 24
+// 		},
+// 		{
+// 			"product": "Fish",
+// 			"date": "2023-03-20T03:09:29.752Z",
+// 			"waiter": "Buford",
+// 			"price": "867.00",
+// 			"turn": 16
+// 		},
+// 		{
+// 			"product": "Chips",
+// 			"date": "2023-03-20T08:12:10.267Z",
+// 			"waiter": "Lenore",
+// 			"price": "504.00",
+// 			"turn": 23
+// 		},
+// 		{
+// 			"product": "Gloves",
+// 			"date": "2023-03-20T06:27:46.817Z",
+// 			"waiter": "Lonie",
+// 			"price": "891.00",
+// 			"turn": 25
+// 		},
+// 		{
+// 			"product": "Soap",
+// 			"date": "2023-03-20T00:03:11.677Z",
+// 			"waiter": "Colt",
+// 			"price": "119.00",
+// 			"turn": 30
+// 		},
+// 		{
+// 			"product": "Ball",
+// 			"date": "2023-03-20T03:15:32.483Z",
+// 			"waiter": "Ayden",
+// 			"price": "733.00",
+// 			"turn": 11
+// 		},
+// 		{
+// 			"product": "Shoes",
+// 			"date": "2023-03-20T05:54:33.618Z",
+// 			"waiter": "Eriberto",
+// 			"price": "390.00",
+// 			"turn": 31
+// 		},
+// 		{
+// 			"product": "Pizza",
+// 			"date": "2023-03-19T12:59:39.370Z",
+// 			"waiter": "Tony",
+// 			"price": "516.00",
+// 			"turn": 4
+// 		},
+// 		{
+// 			"product": "Bacon",
+// 			"date": "2023-03-19T23:11:00.347Z",
+// 			"waiter": "Narciso",
+// 			"price": "5.00",
+// 			"turn": 16
+// 		},
+// 		{
+// 			"product": "Computer",
+// 			"date": "2023-03-19T09:45:26.982Z",
+// 			"waiter": "Maegan",
+// 			"price": "980.00",
+// 			"turn": 26
+// 		},
+// 		{
+// 			"product": "Bacon",
+// 			"date": "2023-03-19T15:32:18.632Z",
+// 			"waiter": "Madisen",
+// 			"price": "565.00",
+// 			"turn": 19
+// 		},
+// 		{
+// 			"product": "Pants",
+// 			"date": "2023-03-19T10:25:21.923Z",
+// 			"waiter": "Milan",
+// 			"price": "942.00",
+// 			"turn": 16
+// 		},
+// 		{
+// 			"product": "Chicken",
+// 			"date": "2023-03-20T07:48:27.596Z",
+// 			"waiter": "Roberta",
+// 			"price": "8.00",
+// 			"turn": 14
+// 		},
+// 		{
+// 			"product": "Bacon",
+// 			"date": "2023-03-19T13:23:28.571Z",
+// 			"waiter": "Arne",
+// 			"price": "463.00",
+// 			"turn": 23
+// 		},
+// 		{
+// 			"product": "Chips",
+// 			"date": "2023-03-19T14:14:08.201Z",
+// 			"waiter": "Neva",
+// 			"price": "302.00",
+// 			"turn": 2
+// 		},
+// 		{
+// 			"product": "Bacon",
+// 			"date": "2023-03-19T13:38:28.458Z",
+// 			"waiter": "Otho",
+// 			"price": "839.00",
+// 			"turn": 0
+// 		},
+// 		{
+// 			"product": "Table",
+// 			"date": "2023-03-19T12:55:44.657Z",
+// 			"waiter": "Mylene",
+// 			"price": "322.00",
+// 			"turn": 34
+// 		},
+// 		{
+// 			"product": "Soap",
+// 			"date": "2023-03-19T13:34:33.003Z",
+// 			"waiter": "Brandyn",
+// 			"price": "248.00",
+// 			"turn": 9
+// 		},
+// 		{
+// 			"product": "Table",
+// 			"date": "2023-03-20T00:21:50.200Z",
+// 			"waiter": "Baron",
+// 			"price": "277.00",
+// 			"turn": 11
+// 		},
+// 		{
+// 			"product": "Cheese",
+// 			"date": "2023-03-19T16:30:10.791Z",
+// 			"waiter": "Leslie",
+// 			"price": "202.00",
+// 			"turn": 25
+// 		},
+// 		{
+// 			"product": "Chicken",
+// 			"date": "2023-03-19T22:53:26.479Z",
+// 			"waiter": "Leora",
+// 			"price": "13.00",
+// 			"turn": 1
+// 		},
+// 		{
+// 			"product": "Bacon",
+// 			"date": "2023-03-19T14:50:30.936Z",
+// 			"waiter": "Maximo",
+// 			"price": "597.00",
+// 			"turn": 37
+// 		},
+// 		{
+// 			"product": "Sausages",
+// 			"date": "2023-03-20T03:00:56.191Z",
+// 			"waiter": "Jason",
+// 			"price": "73.00",
+// 			"turn": 24
+// 		},
+// 		{
+// 			"product": "Mouse",
+// 			"date": "2023-03-19T21:23:22.141Z",
+// 			"waiter": "Alvera",
+// 			"price": "417.00",
+// 			"turn": 27
+// 		},
+// 		{
+// 			"product": "Pants",
+// 			"date": "2023-03-19T12:13:49.811Z",
+// 			"waiter": "Amalia",
+// 			"price": "268.00",
+// 			"turn": 11
+// 		},
+// 		{
+// 			"product": "Computer",
+// 			"date": "2023-03-19T12:33:06.431Z",
+// 			"waiter": "Bethel",
+// 			"price": "750.00",
+// 			"turn": 22
+// 		},
+// 		{
+// 			"product": "Mouse",
+// 			"date": "2023-03-19T23:42:13.038Z",
+// 			"waiter": "Arnulfo",
+// 			"price": "428.00",
+// 			"turn": 27
+// 		},
+// 		{
+// 			"product": "Pizza",
+// 			"date": "2023-03-19T21:42:46.877Z",
+// 			"waiter": "Walter",
+// 			"price": "852.00",
+// 			"turn": 18
+// 		},
+// 		{
+// 			"product": "Chicken",
+// 			"date": "2023-03-20T03:39:38.136Z",
+// 			"waiter": "Demarcus",
+// 			"price": "683.00",
+// 			"turn": 5
+// 		},
+// 		{
+// 			"product": "Shoes",
+// 			"date": "2023-03-20T00:04:55.651Z",
+// 			"waiter": "Erwin",
+// 			"price": "760.00",
+// 			"turn": 28
+// 		},
+// 		{
+// 			"product": "Salad",
+// 			"date": "2023-03-19T17:23:35.618Z",
+// 			"waiter": "Duane",
+// 			"price": "838.00",
+// 			"turn": 1
+// 		},
+// 		{
+// 			"product": "Keyboard",
+// 			"date": "2023-03-19T19:49:13.039Z",
+// 			"waiter": "Darrion",
+// 			"price": "217.00",
+// 			"turn": 13
+// 		},
+// 		{
+// 			"product": "Table",
+// 			"date": "2023-03-19T16:33:40.343Z",
+// 			"waiter": "Shaina",
+// 			"price": "639.00",
+// 			"turn": 39
+// 		},
+// 		{
+// 			"product": "Table",
+// 			"date": "2023-03-19T09:32:25.849Z",
+// 			"waiter": "Modesto",
+// 			"price": "866.00",
+// 			"turn": 6
+// 		},
+// 		{
+// 			"product": "Bike",
+// 			"date": "2023-03-19T16:36:07.672Z",
+// 			"waiter": "Valentine",
+// 			"price": "419.00",
+// 			"turn": 9
+// 		},
+// 		{
+// 			"product": "Chicken",
+// 			"date": "2023-03-19T18:18:11.207Z",
+// 			"waiter": "Sebastian",
+// 			"price": "914.00",
+// 			"turn": 35
+// 		},
+// 		{
+// 			"product": "Car",
+// 			"date": "2023-03-20T01:58:19.167Z",
+// 			"waiter": "Unique",
+// 			"price": "778.00",
+// 			"turn": 35
+// 		},
+// 		{
+// 			"product": "Chair",
+// 			"date": "2023-03-20T01:37:36.262Z",
+// 			"waiter": "Al",
+// 			"price": "518.00",
+// 			"turn": 11
+// 		},
+// 		{
+// 			"product": "Fish",
+// 			"date": "2023-03-19T16:25:06.442Z",
+// 			"waiter": "Cassidy",
+// 			"price": "355.00",
+// 			"turn": 28
+// 		},
+// 		{
+// 			"product": "Hat",
+// 			"date": "2023-03-19T09:20:31.094Z",
+// 			"waiter": "Bell",
+// 			"price": "752.00",
+// 			"turn": 8
+// 		},
+// 		{
+// 			"product": "Car",
+// 			"date": "2023-03-19T11:24:37.760Z",
+// 			"waiter": "Dasia",
+// 			"price": "992.00",
+// 			"turn": 25
+// 		},
+// 		{
+// 			"product": "Keyboard",
+// 			"date": "2023-03-20T04:56:21.690Z",
+// 			"waiter": "Cary",
+// 			"price": "561.00",
+// 			"turn": 24
+// 		},
+// 		{
+// 			"product": "Chair",
+// 			"date": "2023-03-19T13:50:42.536Z",
+// 			"waiter": "Damien",
+// 			"price": "625.00",
+// 			"turn": 15
+// 		}
+// 	])
+
+// db.Compras.insertMany([
+// 		{
+// 			"product": "Pizza",
+// 			"date": "2023-03-19T13:53:10.556Z",
+// 			"provider": "Colleen",
+// 			"price": "909.00",
+// 			"amount": 4
+// 		},
+// 		{
+// 			"product": "Chicken",
+// 			"date": "2023-03-19T20:07:52.104Z",
+// 			"provider": "Velma",
+// 			"price": "157.00",
+// 			"amount": 31
+// 		},
+// 		{
+// 			"product": "Cheese",
+// 			"date": "2023-03-19T15:25:29.824Z",
+// 			"provider": "Margaret",
+// 			"price": "527.00",
+// 			"amount": 25
+// 		},
+// 		{
+// 			"product": "Hat",
+// 			"date": "2023-03-20T00:43:01.203Z",
+// 			"provider": "Justen",
+// 			"price": "264.00",
+// 			"amount": 19
+// 		},
+// 		{
+// 			"product": "Chair",
+// 			"date": "2023-03-19T12:03:28.560Z",
+// 			"provider": "Francisca",
+// 			"price": "892.00",
+// 			"amount": 6
+// 		},
+// 		{
+// 			"product": "Ball",
+// 			"date": "2023-03-20T04:01:53.015Z",
+// 			"provider": "Kaley",
+// 			"price": "466.00",
+// 			"amount": 24
+// 		},
+// 		{
+// 			"product": "Car",
+// 			"date": "2023-03-20T09:44:00.386Z",
+// 			"provider": "Nolan",
+// 			"price": "499.00",
+// 			"amount": 17
+// 		},
+// 		{
+// 			"product": "Salad",
+// 			"date": "2023-03-20T02:03:54.658Z",
+// 			"provider": "Jacey",
+// 			"price": "936.00",
+// 			"amount": 32
+// 		},
+// 		{
+// 			"product": "Tuna",
+// 			"date": "2023-03-20T04:49:28.381Z",
+// 			"provider": "Susana",
+// 			"price": "535.00",
+// 			"amount": 37
+// 		},
+// 		{
+// 			"product": "Cheese",
+// 			"date": "2023-03-19T15:25:58.924Z",
+// 			"provider": "Vivien",
+// 			"price": "124.00",
+// 			"amount": 15
+// 		},
+// 		{
+// 			"product": "Cheese",
+// 			"date": "2023-03-20T02:26:49.466Z",
+// 			"provider": "Deja",
+// 			"price": "834.00",
+// 			"amount": 36
+// 		},
+// 		{
+// 			"product": "Chicken",
+// 			"date": "2023-03-20T08:30:16.434Z",
+// 			"provider": "Florian",
+// 			"price": "660.00",
+// 			"amount": 9
+// 		},
+// 		{
+// 			"product": "Gloves",
+// 			"date": "2023-03-19T20:46:14.490Z",
+// 			"provider": "Berenice",
+// 			"price": "622.00",
+// 			"amount": 15
+// 		},
+// 		{
+// 			"product": "Chicken",
+// 			"date": "2023-03-20T02:56:35.137Z",
+// 			"provider": "Norene",
+// 			"price": "315.00",
+// 			"amount": 23
+// 		},
+// 		{
+// 			"product": "Computer",
+// 			"date": "2023-03-19T16:50:28.501Z",
+// 			"provider": "Chasity",
+// 			"price": "358.00",
+// 			"amount": 17
+// 		},
+// 		{
+// 			"product": "Tuna",
+// 			"date": "2023-03-19T21:43:50.770Z",
+// 			"provider": "Trever",
+// 			"price": "207.00",
+// 			"amount": 26
+// 		},
+// 		{
+// 			"product": "Pants",
+// 			"date": "2023-03-20T01:43:33.757Z",
+// 			"provider": "Ethel",
+// 			"price": "823.00",
+// 			"amount": 25
+// 		},
+// 		{
+// 			"product": "Pants",
+// 			"date": "2023-03-19T13:06:08.909Z",
+// 			"provider": "Roselyn",
+// 			"price": "92.00",
+// 			"amount": 7
+// 		},
+// 		{
+// 			"product": "Keyboard",
+// 			"date": "2023-03-20T06:26:14.235Z",
+// 			"provider": "Alfonso",
+// 			"price": "158.00",
+// 			"amount": 34
+// 		},
+// 		{
+// 			"product": "Car",
+// 			"date": "2023-03-19T14:41:42.628Z",
+// 			"provider": "Shaniya",
+// 			"price": "670.00",
+// 			"amount": 14
+// 		},
+// 		{
+// 			"product": "Chicken",
+// 			"date": "2023-03-19T19:27:45.224Z",
+// 			"provider": "Lester",
+// 			"price": "199.00",
+// 			"amount": 4
+// 		},
+// 		{
+// 			"product": "Towels",
+// 			"date": "2023-03-19T11:32:27.512Z",
+// 			"provider": "Precious",
+// 			"price": "161.00",
+// 			"amount": 28
+// 		},
+// 		{
+// 			"product": "Bike",
+// 			"date": "2023-03-20T00:26:53.973Z",
+// 			"provider": "Benton",
+// 			"price": "92.00",
+// 			"amount": 14
+// 		},
+// 		{
+// 			"product": "Computer",
+// 			"date": "2023-03-19T23:12:49.964Z",
+// 			"provider": "Winona",
+// 			"price": "908.00",
+// 			"amount": 2
+// 		},
+// 		{
+// 			"product": "Pizza",
+// 			"date": "2023-03-19T23:28:12.126Z",
+// 			"provider": "Bo",
+// 			"price": "925.00",
+// 			"amount": 8
+// 		},
+// 		{
+// 			"product": "Chair",
+// 			"date": "2023-03-19T21:04:19.193Z",
+// 			"provider": "Josie",
+// 			"price": "1000.00",
+// 			"amount": 28
+// 		},
+// 		{
+// 			"product": "Pizza",
+// 			"date": "2023-03-19T22:12:04.951Z",
+// 			"provider": "Amelia",
+// 			"price": "427.00",
+// 			"amount": 32
+// 		},
+// 		{
+// 			"product": "Cheese",
+// 			"date": "2023-03-20T04:58:41.151Z",
+// 			"provider": "Gisselle",
+// 			"price": "972.00",
+// 			"amount": 17
+// 		},
+// 		{
+// 			"product": "Fish",
+// 			"date": "2023-03-19T13:26:07.764Z",
+// 			"provider": "Mervin",
+// 			"price": "196.00",
+// 			"amount": 5
+// 		},
+// 		{
+// 			"product": "Chicken",
+// 			"date": "2023-03-19T18:49:50.158Z",
+// 			"provider": "Jason",
+// 			"price": "587.00",
+// 			"amount": 26
+// 		},
+// 		{
+// 			"product": "Computer",
+// 			"date": "2023-03-19T22:37:26.692Z",
+// 			"provider": "Rod",
+// 			"price": "607.00",
+// 			"amount": 36
+// 		},
+// 		{
+// 			"product": "Computer",
+// 			"date": "2023-03-20T00:00:33.443Z",
+// 			"provider": "Marianna",
+// 			"price": "778.00",
+// 			"amount": 25
+// 		},
+// 		{
+// 			"product": "Tuna",
+// 			"date": "2023-03-20T02:48:56.828Z",
+// 			"provider": "Dorcas",
+// 			"price": "322.00",
+// 			"amount": 14
+// 		},
+// 		{
+// 			"product": "Fish",
+// 			"date": "2023-03-19T18:57:41.341Z",
+// 			"provider": "Evan",
+// 			"price": "511.00",
+// 			"amount": 23
+// 		},
+// 		{
+// 			"product": "Cheese",
+// 			"date": "2023-03-19T17:29:35.839Z",
+// 			"provider": "Helene",
+// 			"price": "533.00",
+// 			"amount": 23
+// 		},
+// 		{
+// 			"product": "Chips",
+// 			"date": "2023-03-20T06:53:17.759Z",
+// 			"provider": "Katelyn",
+// 			"price": "189.00",
+// 			"amount": 40
+// 		},
+// 		{
+// 			"product": "Keyboard",
+// 			"date": "2023-03-20T07:24:40.864Z",
+// 			"provider": "Shana",
+// 			"price": "826.00",
+// 			"amount": 27
+// 		},
+// 		{
+// 			"product": "Shoes",
+// 			"date": "2023-03-19T20:21:02.173Z",
+// 			"provider": "Antonia",
+// 			"price": "239.00",
+// 			"amount": 19
+// 		},
+// 		{
+// 			"product": "Keyboard",
+// 			"date": "2023-03-20T09:20:19.318Z",
+// 			"provider": "Carroll",
+// 			"price": "471.00",
+// 			"amount": 22
+// 		},
+// 		{
+// 			"product": "Pizza",
+// 			"date": "2023-03-20T01:00:54.887Z",
+// 			"provider": "Virgie",
+// 			"price": "696.00",
+// 			"amount": 36
+// 		},
+// 		{
+// 			"product": "Keyboard",
+// 			"date": "2023-03-20T06:36:23.144Z",
+// 			"provider": "Dayne",
+// 			"price": "959.00",
+// 			"amount": 35
+// 		},
+// 		{
+// 			"product": "Hat",
+// 			"date": "2023-03-20T01:57:28.172Z",
+// 			"provider": "Deanna",
+// 			"price": "264.00",
+// 			"amount": 10
+// 		},
+// 		{
+// 			"product": "Pants",
+// 			"date": "2023-03-19T15:41:07.687Z",
+// 			"provider": "Carrie",
+// 			"price": "163.00",
+// 			"amount": 17
+// 		},
+// 		{
+// 			"product": "Chips",
+// 			"date": "2023-03-19T23:30:51.743Z",
+// 			"provider": "Karson",
+// 			"price": "117.00",
+// 			"amount": 3
+// 		},
+// 		{
+// 			"product": "Car",
+// 			"date": "2023-03-19T20:46:48.949Z",
+// 			"provider": "Creola",
+// 			"price": "201.00",
+// 			"amount": 8
+// 		},
+// 		{
+// 			"product": "Tuna",
+// 			"date": "2023-03-20T05:08:39.788Z",
+// 			"provider": "Darwin",
+// 			"price": "975.00",
+// 			"amount": 31
+// 		},
+// 		{
+// 			"product": "Ball",
+// 			"date": "2023-03-19T11:22:00.039Z",
+// 			"provider": "Annamarie",
+// 			"price": "443.00",
+// 			"amount": 0
+// 		},
+// 		{
+// 			"product": "Fish",
+// 			"date": "2023-03-20T09:10:09.663Z",
+// 			"provider": "Dejuan",
+// 			"price": "646.00",
+// 			"amount": 32
+// 		},
+// 		{
+// 			"product": "Keyboard",
+// 			"date": "2023-03-20T09:30:22.431Z",
+// 			"provider": "Adolphus",
+// 			"price": "827.00",
+// 			"amount": 33
+// 		},
+// 		{
+// 			"product": "Ball",
+// 			"date": "2023-03-19T16:05:56.313Z",
+// 			"provider": "Gregg",
+// 			"price": "401.00",
+// 			"amount": 17
+// 		},
+// 		{
+// 			"product": "Mouse",
+// 			"date": "2023-03-19T23:53:58.805Z",
+// 			"provider": "Kaylin",
+// 			"price": "845.00",
+// 			"amount": 8
+// 		},
+// 		{
+// 			"product": "Computer",
+// 			"date": "2023-03-19T11:41:39.921Z",
+// 			"provider": "Zachary",
+// 			"price": "172.00",
+// 			"amount": 19
+// 		},
+// 		{
+// 			"product": "Bacon",
+// 			"date": "2023-03-19T10:59:08.525Z",
+// 			"provider": "Anya",
+// 			"price": "499.00",
+// 			"amount": 9
+// 		},
+// 		{
+// 			"product": "Bacon",
+// 			"date": "2023-03-20T00:23:43.813Z",
+// 			"provider": "Kariane",
+// 			"price": "35.00",
+// 			"amount": 30
+// 		},
+// 		{
+// 			"product": "Salad",
+// 			"date": "2023-03-20T05:44:32.010Z",
+// 			"provider": "Lillie",
+// 			"price": "374.00",
+// 			"amount": 23
+// 		},
+// 		{
+// 			"product": "Ball",
+// 			"date": "2023-03-19T13:19:04.155Z",
+// 			"provider": "Xander",
+// 			"price": "612.00",
+// 			"amount": 23
+// 		},
+// 		{
+// 			"product": "Gloves",
+// 			"date": "2023-03-19T23:43:55.548Z",
+// 			"provider": "Eunice",
+// 			"price": "124.00",
+// 			"amount": 17
+// 		},
+// 		{
+// 			"product": "Sausages",
+// 			"date": "2023-03-19T16:37:56.230Z",
+// 			"provider": "Jalon",
+// 			"price": "31.00",
+// 			"amount": 3
+// 		},
+// 		{
+// 			"product": "Chicken",
+// 			"date": "2023-03-20T01:17:33.477Z",
+// 			"provider": "Nathanial",
+// 			"price": "940.00",
+// 			"amount": 31
+// 		},
+// 		{
+// 			"product": "Car",
+// 			"date": "2023-03-19T23:46:35.407Z",
+// 			"provider": "Geovanni",
+// 			"price": "139.00",
+// 			"amount": 16
+// 		},
+// 		{
+// 			"product": "Chair",
+// 			"date": "2023-03-20T01:49:22.185Z",
+// 			"provider": "Carley",
+// 			"price": "629.00",
+// 			"amount": 36
+// 		},
+// 		{
+// 			"product": "Computer",
+// 			"date": "2023-03-19T16:14:49.457Z",
+// 			"provider": "Fay",
+// 			"price": "344.00",
+// 			"amount": 24
+// 		},
+// 		{
+// 			"product": "Table",
+// 			"date": "2023-03-19T17:42:38.777Z",
+// 			"provider": "Marielle",
+// 			"price": "842.00",
+// 			"amount": 6
+// 		},
+// 		{
+// 			"product": "Bacon",
+// 			"date": "2023-03-19T15:09:14.237Z",
+// 			"provider": "Hope",
+// 			"price": "191.00",
+// 			"amount": 25
+// 		},
+// 		{
+// 			"product": "Chicken",
+// 			"date": "2023-03-19T22:46:49.781Z",
+// 			"provider": "Hosea",
+// 			"price": "276.00",
+// 			"amount": 36
+// 		},
+// 		{
+// 			"product": "Sausages",
+// 			"date": "2023-03-20T07:49:19.135Z",
+// 			"provider": "Melany",
+// 			"price": "399.00",
+// 			"amount": 30
+// 		},
+// 		{
+// 			"product": "Hat",
+// 			"date": "2023-03-19T22:16:14.695Z",
+// 			"provider": "Lindsay",
+// 			"price": "669.00",
+// 			"amount": 40
+// 		},
+// 		{
+// 			"product": "Bike",
+// 			"date": "2023-03-19T10:32:49.622Z",
+// 			"provider": "Stone",
+// 			"price": "810.00",
+// 			"amount": 15
+// 		},
+// 		{
+// 			"product": "Sausages",
+// 			"date": "2023-03-19T15:45:30.771Z",
+// 			"provider": "Santiago",
+// 			"price": "566.00",
+// 			"amount": 23
+// 		},
+// 		{
+// 			"product": "Salad",
+// 			"date": "2023-03-20T09:59:17.847Z",
+// 			"provider": "Mia",
+// 			"price": "226.00",
+// 			"amount": 35
+// 		},
+// 		{
+// 			"product": "Chair",
+// 			"date": "2023-03-20T08:40:19.050Z",
+// 			"provider": "Will",
+// 			"price": "705.00",
+// 			"amount": 13
+// 		},
+// 		{
+// 			"product": "Ball",
+// 			"date": "2023-03-19T17:03:13.032Z",
+// 			"provider": "Bell",
+// 			"price": "902.00",
+// 			"amount": 13
+// 		},
+// 		{
+// 			"product": "Bike",
+// 			"date": "2023-03-19T23:29:56.673Z",
+// 			"provider": "Hayden",
+// 			"price": "274.00",
+// 			"amount": 3
+// 		},
+// 		{
+// 			"product": "Towels",
+// 			"date": "2023-03-19T20:28:22.605Z",
+// 			"provider": "Jacques",
+// 			"price": "625.00",
+// 			"amount": 7
+// 		},
+// 		{
+// 			"product": "Fish",
+// 			"date": "2023-03-19T14:16:11.234Z",
+// 			"provider": "Maximo",
+// 			"price": "369.00",
+// 			"amount": 35
+// 		},
+// 		{
+// 			"product": "Table",
+// 			"date": "2023-03-19T21:54:57.321Z",
+// 			"provider": "Susana",
+// 			"price": "709.00",
+// 			"amount": 18
+// 		},
+// 		{
+// 			"product": "Shoes",
+// 			"date": "2023-03-19T14:35:15.076Z",
+// 			"provider": "Mercedes",
+// 			"price": "302.00",
+// 			"amount": 1
+// 		},
+// 		{
+// 			"product": "Towels",
+// 			"date": "2023-03-19T16:15:12.443Z",
+// 			"provider": "Lawrence",
+// 			"price": "601.00",
+// 			"amount": 2
+// 		},
+// 		{
+// 			"product": "Car",
+// 			"date": "2023-03-19T13:31:31.151Z",
+// 			"provider": "Alexandre",
+// 			"price": "125.00",
+// 			"amount": 9
+// 		},
+// 		{
+// 			"product": "Shoes",
+// 			"date": "2023-03-20T01:06:31.856Z",
+// 			"provider": "Malika",
+// 			"price": "635.00",
+// 			"amount": 21
+// 		},
+// 		{
+// 			"product": "Bike",
+// 			"date": "2023-03-19T15:49:41.901Z",
+// 			"provider": "Maximillia",
+// 			"price": "139.00",
+// 			"amount": 34
+// 		},
+// 		{
+// 			"product": "Hat",
+// 			"date": "2023-03-19T12:55:50.402Z",
+// 			"provider": "Jadyn",
+// 			"price": "943.00",
+// 			"amount": 12
+// 		},
+// 		{
+// 			"product": "Pizza",
+// 			"date": "2023-03-19T13:05:50.937Z",
+// 			"provider": "Rylee",
+// 			"price": "508.00",
+// 			"amount": 20
+// 		},
+// 		{
+// 			"product": "Sausages",
+// 			"date": "2023-03-19T21:44:21.362Z",
+// 			"provider": "Cletus",
+// 			"price": "130.00",
+// 			"amount": 0
+// 		},
+// 		{
+// 			"product": "Tuna",
+// 			"date": "2023-03-20T03:14:23.407Z",
+// 			"provider": "Patricia",
+// 			"price": "259.00",
+// 			"amount": 24
+// 		},
+// 		{
+// 			"product": "Shirt",
+// 			"date": "2023-03-19T21:22:55.696Z",
+// 			"provider": "Baylee",
+// 			"price": "977.00",
+// 			"amount": 16
+// 		},
+// 		{
+// 			"product": "Soap",
+// 			"date": "2023-03-19T14:43:02.997Z",
+// 			"provider": "Susanna",
+// 			"price": "497.00",
+// 			"amount": 0
+// 		},
+// 		{
+// 			"product": "Car",
+// 			"date": "2023-03-19T22:32:44.545Z",
+// 			"provider": "Destini",
+// 			"price": "237.00",
+// 			"amount": 37
+// 		},
+// 		{
+// 			"product": "Keyboard",
+// 			"date": "2023-03-19T16:06:41.786Z",
+// 			"provider": "Kiera",
+// 			"price": "544.00",
+// 			"amount": 37
+// 		},
+// 		{
+// 			"product": "Soap",
+// 			"date": "2023-03-20T08:32:22.563Z",
+// 			"provider": "Walker",
+// 			"price": "952.00",
+// 			"amount": 12
+// 		},
+// 		{
+// 			"product": "Hat",
+// 			"date": "2023-03-19T14:43:56.027Z",
+// 			"provider": "Lexie",
+// 			"price": "364.00",
+// 			"amount": 35
+// 		},
+// 		{
+// 			"product": "Tuna",
+// 			"date": "2023-03-19T23:06:11.291Z",
+// 			"provider": "Blake",
+// 			"price": "958.00",
+// 			"amount": 15
+// 		},
+// 		{
+// 			"product": "Soap",
+// 			"date": "2023-03-19T18:31:18.033Z",
+// 			"provider": "Jan",
+// 			"price": "601.00",
+// 			"amount": 9
+// 		},
+// 		{
+// 			"product": "Mouse",
+// 			"date": "2023-03-19T21:15:09.813Z",
+// 			"provider": "Edwin",
+// 			"price": "621.00",
+// 			"amount": 12
+// 		},
+// 		{
+// 			"product": "Tuna",
+// 			"date": "2023-03-20T07:52:14.138Z",
+// 			"provider": "Jamaal",
+// 			"price": "80.00",
+// 			"amount": 9
+// 		},
+// 		{
+// 			"product": "Tuna",
+// 			"date": "2023-03-20T04:04:55.259Z",
+// 			"provider": "Catharine",
+// 			"price": "29.00",
+// 			"amount": 36
+// 		},
+// 		{
+// 			"product": "Soap",
+// 			"date": "2023-03-20T03:18:11.868Z",
+// 			"provider": "Mariam",
+// 			"price": "137.00",
+// 			"amount": 38
+// 		},
+// 		{
+// 			"product": "Sausages",
+// 			"date": "2023-03-20T10:09:57.408Z",
+// 			"provider": "Juliana",
+// 			"price": "89.00",
+// 			"amount": 16
+// 		},
+// 		{
+// 			"product": "Chair",
+// 			"date": "2023-03-20T01:03:56.921Z",
+// 			"provider": "Anna",
+// 			"price": "88.00",
+// 			"amount": 13
+// 		},
+// 		{
+// 			"product": "Computer",
+// 			"date": "2023-03-19T10:50:44.411Z",
+// 			"provider": "Cooper",
+// 			"price": "475.00",
+// 			"amount": 13
+// 		}
+// 	])
+
+
+//db.Proveedores.insertMany([
+	// 	{
+	// 		"id": 1,
+	// 		"firstName": "Kaycee",
+	// 		"lastName": "Barrows",
+	// 		"phone": "(898) 623-4205",
+	// 		"email": "Dorothea.Leannon@yahoo.com",
+	// 		"city": "Parisianborough"
+	// 	},
+	// 	{
+	// 		"id": 2,
+	// 		"firstName": "Alden",
+	// 		"lastName": "Kunze",
+	// 		"phone": "376.450.6704",
+	// 		"email": "Cyril_Mueller22@hotmail.com",
+	// 		"city": "Damionshire"
+	// 	},
+	// 	{
+	// 		"id": 3,
+	// 		"firstName": "Kris",
+	// 		"lastName": "Ondricka",
+	// 		"phone": "437-523-1772 x8447",
+	// 		"email": "Jennings_Walker@hotmail.com",
+	// 		"city": "Lake Coralie"
+	// 	},
+	// 	{
+	// 		"id": 4,
+	// 		"firstName": "Rogelio",
+	// 		"lastName": "Reynolds",
+	// 		"phone": "432.994.3440 x429",
+	// 		"email": "Chelsie.Kiehn19@yahoo.com",
+	// 		"city": "Port Dillonland"
+	// 	},
+	// 	{
+	// 		"id": 5,
+	// 		"firstName": "Melvin",
+	// 		"lastName": "Reichel",
+	// 		"phone": "(910) 344-6304 x269",
+	// 		"email": "Rachael_Toy@yahoo.com",
+	// 		"city": "Bartonshire"
+	// 	},
+	// 	{
+	// 		"id": 6,
+	// 		"firstName": "Willy",
+	// 		"lastName": "Upton",
+	// 		"phone": "(290) 721-6813 x92202",
+	// 		"email": "Virginia.Gusikowski@gmail.com",
+	// 		"city": "East Jany"
+	// 	},
+	// 	{
+	// 		"id": 7,
+	// 		"firstName": "Darion",
+	// 		"lastName": "Halvorson",
+	// 		"phone": "778.797.2695 x08376",
+	// 		"email": "Hilbert_Gerhold@hotmail.com",
+	// 		"city": "Florineside"
+	// 	},
+	// 	{
+	// 		"id": 8,
+	// 		"firstName": "Sim",
+	// 		"lastName": "Heidenreich",
+	// 		"phone": "693-249-6035 x3300",
+	// 		"email": "Kathlyn60@hotmail.com",
+	// 		"city": "South Ima"
+	// 	},
+	// 	{
+	// 		"id": 9,
+	// 		"firstName": "Earline",
+	// 		"lastName": "Ankunding",
+	// 		"phone": "864-635-4555 x52721",
+	// 		"email": "Abbey47@hotmail.com",
+	// 		"city": "Cupertino"
+	// 	},
+	// 	{
+	// 		"id": 10,
+	// 		"firstName": "Mable",
+	// 		"lastName": "Moen",
+	// 		"phone": "411-226-8529 x005",
+	// 		"email": "Florida.Runte@hotmail.com",
+	// 		"city": "Bend"
+	// 	},
+	// 	{
+	// 		"id": 11,
+	// 		"firstName": "Shayna",
+	// 		"lastName": "Hills",
+	// 		"phone": "1-377-489-7635 x503",
+	// 		"email": "Gussie_McLaughlin@hotmail.com",
+	// 		"city": "Huntsville"
+	// 	},
+	// 	{
+	// 		"id": 12,
+	// 		"firstName": "Sadye",
+	// 		"lastName": "Reichel",
+	// 		"phone": "(872) 475-5165 x0300",
+	// 		"email": "Leann.Willms5@yahoo.com",
+	// 		"city": "Priceshire"
+	// 	},
+	// 	{
+	// 		"id": 13,
+	// 		"firstName": "Daija",
+	// 		"lastName": "Bogisich",
+	// 		"phone": "691.618.4311",
+	// 		"email": "Madie_Kris20@yahoo.com",
+	// 		"city": "Rubenmouth"
+	// 	},
+	// 	{
+	// 		"id": 14,
+	// 		"firstName": "Ilene",
+	// 		"lastName": "Mraz",
+	// 		"phone": "329.746.0213",
+	// 		"email": "Elmer.Mitchell@hotmail.com",
+	// 		"city": "West Maya"
+	// 	},
+	// 	{
+	// 		"id": 15,
+	// 		"firstName": "Lennie",
+	// 		"lastName": "Stracke",
+	// 		"phone": "791-580-0653 x004",
+	// 		"email": "Daryl_Spinka@yahoo.com",
+	// 		"city": "East Trentonborough"
+	// 	},
+	// 	{
+	// 		"id": 16,
+	// 		"firstName": "Elvie",
+	// 		"lastName": "Jones",
+	// 		"phone": "(557) 954-3024 x8061",
+	// 		"email": "Augustine27@hotmail.com",
+	// 		"city": "South Ikeville"
+	// 	},
+	// 	{
+	// 		"id": 17,
+	// 		"firstName": "Erin",
+	// 		"lastName": "Berge",
+	// 		"phone": "1-428-336-1479 x91344",
+	// 		"email": "Alfonzo39@hotmail.com",
+	// 		"city": "North Ramona"
+	// 	},
+	// 	{
+	// 		"id": 18,
+	// 		"firstName": "Trenton",
+	// 		"lastName": "Little",
+	// 		"phone": "1-709-887-6827",
+	// 		"email": "Callie80@hotmail.com",
+	// 		"city": "Fort Wayne"
+	// 	},
+	// 	{
+	// 		"id": 19,
+	// 		"firstName": "Ashton",
+	// 		"lastName": "Hamill",
+	// 		"phone": "1-874-571-6453 x29167",
+	// 		"email": "Emory9@hotmail.com",
+	// 		"city": "New Randal"
+	// 	},
+	// 	{
+	// 		"id": 20,
+	// 		"firstName": "Orie",
+	// 		"lastName": "Kertzmann",
+	// 		"phone": "272-916-9990 x99872",
+	// 		"email": "Kacie.Dickens@gmail.com",
+	// 		"city": "Uptontown"
+	// 	},
+	// 	{
+	// 		"id": 21,
+	// 		"firstName": "Alessandro",
+	// 		"lastName": "Batz",
+	// 		"phone": "(758) 796-1022",
+	// 		"email": "Veda62@gmail.com",
+	// 		"city": "Predovicland"
+	// 	},
+	// 	{
+	// 		"id": 22,
+	// 		"firstName": "Cole",
+	// 		"lastName": "O'Kon",
+	// 		"phone": "915.405.7069 x2173",
+	// 		"email": "Ollie98@hotmail.com",
+	// 		"city": "Bellaland"
+	// 	},
+	// 	{
+	// 		"id": 23,
+	// 		"firstName": "Elsa",
+	// 		"lastName": "Kub",
+	// 		"phone": "895-923-8199 x039",
+	// 		"email": "Destin71@gmail.com",
+	// 		"city": "Lelamouth"
+	// 	},
+	// 	{
+	// 		"id": 24,
+	// 		"firstName": "Willy",
+	// 		"lastName": "Barton",
+	// 		"phone": "735.691.8132 x726",
+	// 		"email": "Nia.White@yahoo.com",
+	// 		"city": "Rosenbaumhaven"
+	// 	},
+	// 	{
+	// 		"id": 25,
+	// 		"firstName": "Kasandra",
+	// 		"lastName": "Mertz",
+	// 		"phone": "310-769-0181 x2215",
+	// 		"email": "Kirstin12@yahoo.com",
+	// 		"city": "Hirthestad"
+	// 	},
+	// 	{
+	// 		"id": 26,
+	// 		"firstName": "Trevor",
+	// 		"lastName": "Luettgen",
+	// 		"phone": "(796) 341-4884",
+	// 		"email": "Will97@gmail.com",
+	// 		"city": "Johnsbury"
+	// 	},
+	// 	{
+	// 		"id": 27,
+	// 		"firstName": "Ulises",
+	// 		"lastName": "Leuschke",
+	// 		"phone": "421-258-2537 x462",
+	// 		"email": "Lisa45@gmail.com",
+	// 		"city": "South Mya"
+	// 	},
+	// 	{
+	// 		"id": 28,
+	// 		"firstName": "Domenica",
+	// 		"lastName": "Willms",
+	// 		"phone": "914-722-3729",
+	// 		"email": "Joanny_Kautzer@yahoo.com",
+	// 		"city": "Effertzton"
+	// 	},
+	// 	{
+	// 		"id": 29,
+	// 		"firstName": "Princess",
+	// 		"lastName": "Wiegand",
+	// 		"phone": "971-286-5073 x795",
+	// 		"email": "Hans.Hodkiewicz25@yahoo.com",
+	// 		"city": "East Leoniemouth"
+	// 	},
+	// 	{
+	// 		"id": 30,
+	// 		"firstName": "Connie",
+	// 		"lastName": "Lindgren",
+	// 		"phone": "(654) 227-0215",
+	// 		"email": "Deron3@hotmail.com",
+	// 		"city": "Riverview"
+	// 	},
+	// 	{
+	// 		"id": 31,
+	// 		"firstName": "Joy",
+	// 		"lastName": "Huel",
+	// 		"phone": "237.273.3541 x362",
+	// 		"email": "Phyllis_Quitzon@hotmail.com",
+	// 		"city": "New Bertram"
+	// 	},
+	// 	{
+	// 		"id": 32,
+	// 		"firstName": "Burnice",
+	// 		"lastName": "Murray",
+	// 		"phone": "937-476-6611 x0357",
+	// 		"email": "Mackenzie37@gmail.com",
+	// 		"city": "Darylstad"
+	// 	},
+	// 	{
+	// 		"id": 33,
+	// 		"firstName": "Enoch",
+	// 		"lastName": "Kuhic",
+	// 		"phone": "1-808-714-5155 x66129",
+	// 		"email": "Joanny_Franecki14@hotmail.com",
+	// 		"city": "Adamfurt"
+	// 	},
+	// 	{
+	// 		"id": 34,
+	// 		"firstName": "Janae",
+	// 		"lastName": "Hamill",
+	// 		"phone": "(989) 835-6596 x00499",
+	// 		"email": "Gabe.Daugherty@hotmail.com",
+	// 		"city": "Lake Griffinburgh"
+	// 	},
+	// 	{
+	// 		"id": 35,
+	// 		"firstName": "Ciara",
+	// 		"lastName": "Kutch",
+	// 		"phone": "796-915-1335 x433",
+	// 		"email": "Junior.Corwin@hotmail.com",
+	// 		"city": "Lake Zachariah"
+	// 	},
+	// 	{
+	// 		"id": 36,
+	// 		"firstName": "Andre",
+	// 		"lastName": "O'Hara",
+	// 		"phone": "(569) 450-4240 x8915",
+	// 		"email": "Louie_Von39@hotmail.com",
+	// 		"city": "Omaha"
+	// 	},
+	// 	{
+	// 		"id": 37,
+	// 		"firstName": "Albert",
+	// 		"lastName": "Cremin",
+	// 		"phone": "(974) 473-1861",
+	// 		"email": "Alda_Mosciski19@hotmail.com",
+	// 		"city": "East Queeniestad"
+	// 	},
+	// 	{
+	// 		"id": 38,
+	// 		"firstName": "Josiah",
+	// 		"lastName": "Mohr",
+	// 		"phone": "989.312.7451 x675",
+	// 		"email": "Jeffery93@hotmail.com",
+	// 		"city": "Potomac"
+	// 	},
+	// 	{
+	// 		"id": 39,
+	// 		"firstName": "Allan",
+	// 		"lastName": "Shanahan",
+	// 		"phone": "471.614.9101",
+	// 		"email": "Levi_Tromp13@yahoo.com",
+	// 		"city": "East Brandi"
+	// 	},
+	// 	{
+	// 		"id": 40,
+	// 		"firstName": "Rylan",
+	// 		"lastName": "Sawayn",
+	// 		"phone": "(263) 838-2505 x85080",
+	// 		"email": "Toni19@yahoo.com",
+	// 		"city": "Plainfield"
+	// 	},
+	// 	{
+	// 		"id": 41,
+	// 		"firstName": "Nikolas",
+	// 		"lastName": "Franecki",
+	// 		"phone": "(362) 539-9213",
+	// 		"email": "Makenzie18@hotmail.com",
+	// 		"city": "Tyresemouth"
+	// 	},
+	// 	{
+	// 		"id": 42,
+	// 		"firstName": "Mollie",
+	// 		"lastName": "Streich",
+	// 		"phone": "225.394.5654 x29179",
+	// 		"email": "Fredy.Volkman17@yahoo.com",
+	// 		"city": "Timothyborough"
+	// 	},
+	// 	{
+	// 		"id": 43,
+	// 		"firstName": "Kylie",
+	// 		"lastName": "Will",
+	// 		"phone": "467-783-1159 x532",
+	// 		"email": "Mae.Mitchell84@hotmail.com",
+	// 		"city": "New Elinorton"
+	// 	},
+	// 	{
+	// 		"id": 44,
+	// 		"firstName": "Rhea",
+	// 		"lastName": "Lebsack",
+	// 		"phone": "455-835-1112 x72585",
+	// 		"email": "Murl66@hotmail.com",
+	// 		"city": "Lake Roscoetown"
+	// 	},
+	// 	{
+	// 		"id": 45,
+	// 		"firstName": "Pablo",
+	// 		"lastName": "Farrell",
+	// 		"phone": "419-723-5057 x020",
+	// 		"email": "Agustina_Brekke58@hotmail.com",
+	// 		"city": "Yostview"
+	// 	},
+	// 	{
+	// 		"id": 46,
+	// 		"firstName": "Anika",
+	// 		"lastName": "Hartmann",
+	// 		"phone": "253-775-9302 x8866",
+	// 		"email": "Kennedi94@gmail.com",
+	// 		"city": "New Micaelahaven"
+	// 	},
+	// 	{
+	// 		"id": 47,
+	// 		"firstName": "Elmira",
+	// 		"lastName": "Boehm",
+	// 		"phone": "562-862-2115 x720",
+	// 		"email": "Alene_Kutch67@gmail.com",
+	// 		"city": "Howeshire"
+	// 	},
+	// 	{
+	// 		"id": 48,
+	// 		"firstName": "Adelle",
+	// 		"lastName": "Gorczany",
+	// 		"phone": "535.240.2029 x17096",
+	// 		"email": "Torrey.Funk@gmail.com",
+	// 		"city": "Hempstead"
+	// 	},
+	// 	{
+	// 		"id": 49,
+	// 		"firstName": "Izabella",
+	// 		"lastName": "Kohler",
+	// 		"phone": "668.309.0595",
+	// 		"email": "Chesley56@yahoo.com",
+	// 		"city": "Port Fredbury"
+	// 	},
+	// 	{
+	// 		"id": 50,
+	// 		"firstName": "Myrtice",
+	// 		"lastName": "Wilderman",
+	// 		"phone": "371-335-4568 x762",
+	// 		"email": "Macy.Hodkiewicz83@hotmail.com",
+	// 		"city": "Bednarstad"
+	// 	},
+	// 	{
+	// 		"id": 51,
+	// 		"firstName": "Asha",
+	// 		"lastName": "Waelchi",
+	// 		"phone": "1-511-968-2730",
+	// 		"email": "Claude_Runolfsdottir95@yahoo.com",
+	// 		"city": "Delano"
+	// 	},
+	// 	{
+	// 		"id": 52,
+	// 		"firstName": "Jess",
+	// 		"lastName": "Harber",
+	// 		"phone": "1-802-520-3074 x657",
+	// 		"email": "Ronaldo.Kirlin@gmail.com",
+	// 		"city": "New Alyson"
+	// 	},
+	// 	{
+	// 		"id": 53,
+	// 		"firstName": "Antone",
+	// 		"lastName": "Considine",
+	// 		"phone": "440-917-7010 x531",
+	// 		"email": "Antwon_Corwin@hotmail.com",
+	// 		"city": "North Lauriane"
+	// 	},
+	// 	{
+	// 		"id": 54,
+	// 		"firstName": "Lolita",
+	// 		"lastName": "Daugherty",
+	// 		"phone": "656.213.2973 x6200",
+	// 		"email": "Carolyn.Wiza@gmail.com",
+	// 		"city": "Burlington"
+	// 	},
+	// 	{
+	// 		"id": 55,
+	// 		"firstName": "Anastasia",
+	// 		"lastName": "Ritchie",
+	// 		"phone": "737.353.5379",
+	// 		"email": "Genoveva_Hintz21@gmail.com",
+	// 		"city": "North Gideonfurt"
+	// 	},
+	// 	{
+	// 		"id": 56,
+	// 		"firstName": "Geoffrey",
+	// 		"lastName": "Bechtelar",
+	// 		"phone": "1-650-426-9905",
+	// 		"email": "Tad_Wuckert@gmail.com",
+	// 		"city": "East Kianaton"
+	// 	},
+	// 	{
+	// 		"id": 57,
+	// 		"firstName": "Alexandrea",
+	// 		"lastName": "Greenholt",
+	// 		"phone": "630-944-4103",
+	// 		"email": "Karina14@yahoo.com",
+	// 		"city": "West Manuel"
+	// 	},
+	// 	{
+	// 		"id": 58,
+	// 		"firstName": "Asa",
+	// 		"lastName": "Veum",
+	// 		"phone": "826-514-5536 x878",
+	// 		"email": "Crystal.Treutel@hotmail.com",
+	// 		"city": "Alizashire"
+	// 	},
+	// 	{
+	// 		"id": 59,
+	// 		"firstName": "Erin",
+	// 		"lastName": "Hartmann",
+	// 		"phone": "999-384-6960",
+	// 		"email": "Amari.Parker80@yahoo.com",
+	// 		"city": "Abbottberg"
+	// 	},
+	// 	{
+	// 		"id": 60,
+	// 		"firstName": "Jalen",
+	// 		"lastName": "Dibbert",
+	// 		"phone": "(263) 692-5974 x662",
+	// 		"email": "Griffin56@gmail.com",
+	// 		"city": "Mountain View"
+	// 	},
+	// 	{
+	// 		"id": 61,
+	// 		"firstName": "Cleveland",
+	// 		"lastName": "Breitenberg",
+	// 		"phone": "(826) 999-4368 x11071",
+	// 		"email": "Jovany47@gmail.com",
+	// 		"city": "Lauriehaven"
+	// 	},
+	// 	{
+	// 		"id": 62,
+	// 		"firstName": "Bernadette",
+	// 		"lastName": "Gleichner",
+	// 		"phone": "932-581-8419 x3422",
+	// 		"email": "Vinnie_Donnelly53@hotmail.com",
+	// 		"city": "Zemlakside"
+	// 	},
+	// 	{
+	// 		"id": 63,
+	// 		"firstName": "Birdie",
+	// 		"lastName": "Mann",
+	// 		"phone": "1-688-919-9478 x838",
+	// 		"email": "Lelia3@hotmail.com",
+	// 		"city": "Port Alexandremouth"
+	// 	},
+	// 	{
+	// 		"id": 64,
+	// 		"firstName": "Oscar",
+	// 		"lastName": "Langosh",
+	// 		"phone": "375.672.2354",
+	// 		"email": "Spencer_Green54@gmail.com",
+	// 		"city": "Beavercreek"
+	// 	},
+	// 	{
+	// 		"id": 65,
+	// 		"firstName": "Shea",
+	// 		"lastName": "Kiehn",
+	// 		"phone": "656-855-9325 x67219",
+	// 		"email": "Arianna67@hotmail.com",
+	// 		"city": "New Magnusfurt"
+	// 	},
+	// 	{
+	// 		"id": 66,
+	// 		"firstName": "Aric",
+	// 		"lastName": "Jacobs",
+	// 		"phone": "407.596.2023",
+	// 		"email": "Lyla.Schmitt91@yahoo.com",
+	// 		"city": "Hempstead"
+	// 	},
+	// 	{
+	// 		"id": 67,
+	// 		"firstName": "Reed",
+	// 		"lastName": "Collins",
+	// 		"phone": "1-702-299-9964",
+	// 		"email": "Anastacio_Schoen@gmail.com",
+	// 		"city": "West Zola"
+	// 	},
+	// 	{
+	// 		"id": 68,
+	// 		"firstName": "Ron",
+	// 		"lastName": "Upton",
+	// 		"phone": "368.461.5525 x4845",
+	// 		"email": "Will82@yahoo.com",
+	// 		"city": "West Dudley"
+	// 	},
+	// 	{
+	// 		"id": 69,
+	// 		"firstName": "Faustino",
+	// 		"lastName": "McGlynn",
+	// 		"phone": "586-487-2435 x6960",
+	// 		"email": "Stella33@hotmail.com",
+	// 		"city": "Lake Triston"
+	// 	},
+	// 	{
+	// 		"id": 70,
+	// 		"firstName": "Jaeden",
+	// 		"lastName": "Gottlieb",
+	// 		"phone": "1-477-449-8585",
+	// 		"email": "Rozella_Balistreri99@hotmail.com",
+	// 		"city": "North Jamilport"
+	// 	},
+	// 	{
+	// 		"id": 71,
+	// 		"firstName": "Ali",
+	// 		"lastName": "Metz",
+	// 		"phone": "812.733.9771 x0757",
+	// 		"email": "Cyril_Monahan77@hotmail.com",
+	// 		"city": "West Samport"
+	// 	},
+	// 	{
+	// 		"id": 72,
+	// 		"firstName": "Madelyn",
+	// 		"lastName": "Reilly",
+	// 		"phone": "749.298.0744 x1887",
+	// 		"email": "Birdie41@yahoo.com",
+	// 		"city": "Albany"
+	// 	},
+	// 	{
+	// 		"id": 73,
+	// 		"firstName": "Maybell",
+	// 		"lastName": "Carroll",
+	// 		"phone": "(865) 885-3074 x2995",
+	// 		"email": "Elvie_Cassin@gmail.com",
+	// 		"city": "North Gaylordport"
+	// 	},
+	// 	{
+	// 		"id": 74,
+	// 		"firstName": "Mohammad",
+	// 		"lastName": "Stroman",
+	// 		"phone": "1-920-783-3953 x71930",
+	// 		"email": "Casimir_Brekke60@hotmail.com",
+	// 		"city": "East Bryon"
+	// 	},
+	// 	{
+	// 		"id": 75,
+	// 		"firstName": "Jed",
+	// 		"lastName": "Morissette",
+	// 		"phone": "(499) 450-2574",
+	// 		"email": "Bryce.Heaney@gmail.com",
+	// 		"city": "South Evansshire"
+	// 	},
+	// 	{
+	// 		"id": 76,
+	// 		"firstName": "Aaron",
+	// 		"lastName": "Powlowski",
+	// 		"phone": "408-405-6808 x96149",
+	// 		"email": "Rowena68@yahoo.com",
+	// 		"city": "Sengershire"
+	// 	},
+	// 	{
+	// 		"id": 77,
+	// 		"firstName": "Scotty",
+	// 		"lastName": "Rohan",
+	// 		"phone": "1-757-315-7245 x00500",
+	// 		"email": "Isai39@yahoo.com",
+	// 		"city": "South Mae"
+	// 	},
+	// 	{
+	// 		"id": 78,
+	// 		"firstName": "Liliane",
+	// 		"lastName": "Bins",
+	// 		"phone": "1-707-417-4760",
+	// 		"email": "Janis9@yahoo.com",
+	// 		"city": "Pasco"
+	// 	},
+	// 	{
+	// 		"id": 79,
+	// 		"firstName": "Cody",
+	// 		"lastName": "Lebsack",
+	// 		"phone": "881.957.4872",
+	// 		"email": "Winfield96@hotmail.com",
+	// 		"city": "East Stewart"
+	// 	},
+	// 	{
+	// 		"id": 80,
+	// 		"firstName": "Jacklyn",
+	// 		"lastName": "Marks",
+	// 		"phone": "(292) 461-3667 x835",
+	// 		"email": "Myrtice92@yahoo.com",
+	// 		"city": "Deionmouth"
+	// 	},
+	// 	{
+	// 		"id": 81,
+	// 		"firstName": "Lyda",
+	// 		"lastName": "Larkin",
+	// 		"phone": "(381) 211-8491 x118",
+	// 		"email": "Fernando_Schaefer99@gmail.com",
+	// 		"city": "Round Rock"
+	// 	},
+	// 	{
+	// 		"id": 82,
+	// 		"firstName": "Buck",
+	// 		"lastName": "Hyatt",
+	// 		"phone": "455-873-2151",
+	// 		"email": "Hallie.McKenzie@gmail.com",
+	// 		"city": "Gislasonview"
+	// 	},
+	// 	{
+	// 		"id": 83,
+	// 		"firstName": "Craig",
+	// 		"lastName": "Cummerata",
+	// 		"phone": "1-370-681-4011 x940",
+	// 		"email": "Maximo.Weber4@hotmail.com",
+	// 		"city": "Joannyhaven"
+	// 	},
+	// 	{
+	// 		"id": 84,
+	// 		"firstName": "Minerva",
+	// 		"lastName": "Lakin",
+	// 		"phone": "(629) 728-0532 x572",
+	// 		"email": "Lon.OKon78@gmail.com",
+	// 		"city": "Port Ignatius"
+	// 	},
+	// 	{
+	// 		"id": 85,
+	// 		"firstName": "Nettie",
+	// 		"lastName": "Cronin",
+	// 		"phone": "(478) 982-2279 x366",
+	// 		"email": "Lysanne.Turcotte5@gmail.com",
+	// 		"city": "Lake Cordelia"
+	// 	},
+	// 	{
+	// 		"id": 86,
+	// 		"firstName": "Lane",
+	// 		"lastName": "Windler",
+	// 		"phone": "866.251.3889 x1981",
+	// 		"email": "Maddison.Jast@hotmail.com",
+	// 		"city": "Apopka"
+	// 	},
+	// 	{
+	// 		"id": 87,
+	// 		"firstName": "Holly",
+	// 		"lastName": "Schuster",
+	// 		"phone": "(506) 497-0362 x830",
+	// 		"email": "Jacklyn42@yahoo.com",
+	// 		"city": "North Kristopherburgh"
+	// 	},
+	// 	{
+	// 		"id": 88,
+	// 		"firstName": "Andrew",
+	// 		"lastName": "Crooks",
+	// 		"phone": "670.580.8273",
+	// 		"email": "Agustina_Greenholt@hotmail.com",
+	// 		"city": "Jedidiahfurt"
+	// 	},
+	// 	{
+	// 		"id": 89,
+	// 		"firstName": "Derek",
+	// 		"lastName": "Greenfelder",
+	// 		"phone": "567.600.4066 x48610",
+	// 		"email": "Cristal79@gmail.com",
+	// 		"city": "Milpitas"
+	// 	},
+	// 	{
+	// 		"id": 90,
+	// 		"firstName": "Cleo",
+	// 		"lastName": "Wyman",
+	// 		"phone": "916-411-0956",
+	// 		"email": "Theodora_Stehr47@hotmail.com",
+	// 		"city": "Schillerland"
+	// 	},
+	// 	{
+	// 		"id": 91,
+	// 		"firstName": "Leo",
+	// 		"lastName": "Dibbert",
+	// 		"phone": "1-926-427-0641 x63465",
+	// 		"email": "Zachary_Bayer33@gmail.com",
+	// 		"city": "Hauckton"
+	// 	},
+	// 	{
+	// 		"id": 92,
+	// 		"firstName": "Elyssa",
+	// 		"lastName": "Ernser",
+	// 		"phone": "(235) 360-3507",
+	// 		"email": "Tatyana.Denesik58@hotmail.com",
+	// 		"city": "Miami Beach"
+	// 	},
+	// 	{
+	// 		"id": 93,
+	// 		"firstName": "Yesenia",
+	// 		"lastName": "Okuneva",
+	// 		"phone": "1-927-233-5450 x339",
+	// 		"email": "Pablo_Ratke@yahoo.com",
+	// 		"city": "Rontown"
+	// 	},
+	// 	{
+	// 		"id": 94,
+	// 		"firstName": "Ignatius",
+	// 		"lastName": "West",
+	// 		"phone": "321-482-5881",
+	// 		"email": "Duane_Shields@hotmail.com",
+	// 		"city": "Port Lucasstad"
+	// 	},
+	// 	{
+	// 		"id": 95,
+	// 		"firstName": "Annetta",
+	// 		"lastName": "Nolan",
+	// 		"phone": "550.907.3725",
+	// 		"email": "Moriah71@gmail.com",
+	// 		"city": "Port Pascale"
+	// 	},
+	// 	{
+	// 		"id": 96,
+	// 		"firstName": "Daren",
+	// 		"lastName": "Windler",
+	// 		"phone": "663.910.3903 x2147",
+	// 		"email": "Marie65@yahoo.com",
+	// 		"city": "South Sydneestad"
+	// 	},
+	// 	{
+	// 		"id": 97,
+	// 		"firstName": "Darryl",
+	// 		"lastName": "Lindgren",
+	// 		"phone": "(474) 942-9036 x938",
+	// 		"email": "Vella95@hotmail.com",
+	// 		"city": "Provo"
+	// 	},
+	// 	{
+	// 		"id": 98,
+	// 		"firstName": "Ressie",
+	// 		"lastName": "Towne",
+	// 		"phone": "711-456-0462",
+	// 		"email": "Newell.Stehr35@yahoo.com",
+	// 		"city": "Citrus Heights"
+	// 	},
+	// 	{
+	// 		"id": 99,
+	// 		"firstName": "Nelson",
+	// 		"lastName": "Bruen",
+	// 		"phone": "201-210-4516 x97668",
+	// 		"email": "Gayle_Cartwright86@hotmail.com",
+	// 		"city": "Damianburgh"
+	// 	},
+	// 	{
+	// 		"id": 100,
+	// 		"firstName": "Gene",
+	// 		"lastName": "Goodwin",
+	// 		"phone": "444.956.3527",
+	// 		"email": "Faye_Goyette60@hotmail.com",
+	// 		"city": "Kundestad"
+	// 	}
+	// ])
+
+// #####################################################################################FIN CREACION##########################################################################
+
+
+
+// ###################################################################################### MANIPULACION DE LA DB###############################################################
+
+// db.Proveedores.find({firstName : "Judd"})
+
+// db.Ventas.updateOne({waiter: "Nasir"},{ $set : {"turn" : 1}})
+
+// db.Ventas.updateOne({waiter: "Nasir"},{ $set : {"waiterID" : 1}})
+
+// db.Ventas.updateMany({turn : 11}, {$set:{waiter : "samuel"}})
+
+// db.Ventas.updateMany({turn : 11}, {$set:{waiterID : 30}})
+
+// db.Compras.deleteOne({provider : "Keara"})
+
+// db.Compras.deleteMany({amount: 20})
+
+// db.Proveedores.drop()
+
+
+
+// ############################################## EJEMPLOS CON AGGREGATE #######################################################################
+
+
+
+// db.ventas.aggregate([
+//     {$lookup:{
+//       from: "Compras",
+//       localField : "price",
+//       foreignField : "price",
+//       as : "prices"
+//     }}
+// ])
+
+// db.ventas.aggregate([
+//     {$lookup:{
+//       from: "Proveedores",
+//       localField : "waiter",
+//       foreignField : "firstName",
+//       as : "employees"
+//     }}
+// ])
+
+// db.Compras.aggregate([
+//   {$match : {
+//     amount : 3
+//   }},
+//   {$project : { 
+//     provider : 1, price : 1, product : 1
+//   }},
+//   {$limit : 1}
+// ])
+
+// db.Compras.aggregate([
+//   {$match : {
+//     amount : 10
+//   }},
+//   {$project : { 
+//     provider : 1, price : 1, product : 1
+//   }},
+//   {$sort :{ price : -1} }
+// ])
